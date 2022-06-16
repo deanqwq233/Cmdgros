@@ -31,32 +31,34 @@ int main()
 		for (j = 0; j <= 6; j++)//一页中六行的循环
 		{
 			printf("%s", introduction[i+j]);
-			for (k = 0; k <= 50; k++)//判断一行是否有音符
-			{
-				if (introduction[i + j][k] == '#') jing = 1;
-			}
-			if (jing == 1)//如果这行有音符
-			{
-				enter = getchar();
-//有问题**
-				if (enter == '/n')
-				{
-					if (jing == 1)
-					{
-						cout << "perfect" << endl;
-						continue;
-					}
-					else
-					{
-						cout << "bad" << endl;
-						continue;
-					}
-				}
-			}
-//**有问题
-			jing = 0;//是否有音符:重置
 			cout << endl;
 		}
+		for (k = 0; k <= 50; k++)//判断一行是否有音符
+		{
+			if (introduction[i][k] == '#') jing = 1;
+			else continue;
+		}
+		if (jing == 1)//如果这行有音符
+		{
+			enter = getchar();
+//有问题**
+			if (enter == '/n'&&jing==1)
+			{
+					cout << "perfect" << endl;
+					continue;
+				}
+				else if(enter=='/n'&&jing!=1)
+				{
+					cout << "bad" << endl;
+					continue;
+				}
+				else if (enter != '/n' && jing != 1)
+				{
+				cout << "miss" << endl;
+				}
+		}
+//**有问题
+		jing = 0;//是否有音符:重置
 		cout << "|_______________________________|" << endl;//底部外框
 		Sleep(n*100);
 		system("cls");
