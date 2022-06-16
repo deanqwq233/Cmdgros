@@ -7,6 +7,7 @@
 #include<iostream>
 #include<windows.h>
 #include<stdio.h>
+#include<conio.h>
 using namespace std;
 char introduction[50][50] = { "|               |               |","|               |               |","|               |               |","|               |               |","|               |               |","|               |               |","|               |               |","|       欢迎来到|Cmdgros，      |","|       现在开始|玩法练习       |","|               |               |","|               |               |","|               |               |","|               |               |","|最上面是判定线 | 音符从下往上走|","|左下角显示距离 | 右下角显示分数|","|               |               |","|遇到音符按回车 |       #####   |","|   #####       |               |","|   #####       |               |","|   #####       |               |","|   #####       |               |","|               |               |","|               |       #####   |","|               |               |","|   #####       |               |","|               |               |" ,"|               |       #####   |","|               |               |","|   #####       |               |","|               |               |" ,"|               |       #####   |","|               |               |","|   #####       |               |","|               |       #####   |"};
 //introduction:谱子"introduction";
@@ -30,7 +31,7 @@ int main()
 		cout << "_________________________________" << endl;//判定线
 		for (j = 0; j <= 6; j++)//一页中六行的循环
 		{
-			printf("%s", introduction[i+j]);
+			printf("%s", introduction[i + j]);
 			cout << endl;
 		}
 		for (k = 0; k <= 50; k++)//判断一行是否有音符
@@ -38,31 +39,28 @@ int main()
 			if (introduction[i][k] == '#') jing = 1;
 			else continue;
 		}
-		if (jing == 1)//如果这行有音符
+		//有问题**
+		while (_kbhit())
 		{
-			enter = getchar();
-//有问题**
-			if (enter == '/n'&&jing==1)
+			enter = _getch();
+			if (enter == '/n' && jing == 1)
 			{
-					cout << "perfect" << endl;
-					continue;
-				}
-				else if(enter=='/n'&&jing!=1)
-				{
-					cout << "bad" << endl;
-					continue;
-				}
-				else if (enter != '/n' && jing != 1)
-				{
-				cout << "miss" << endl;
-				}
+				cout << "perfect" << endl;
+				continue;
+			}
+			else if (enter == '/n' && jing != 1)
+			{
+				cout << "bad" << endl;
+				continue;
+			}
+			else continue;
 		}
-//**有问题
+		//**有问题
 		jing = 0;//是否有音符:重置
 		cout << "|_______________________________|" << endl;//底部外框
-		Sleep(n*100);
+		Sleep(n * 100);
 		system("cls");
-	 }
+	}
 	system("pause");
 	return 0;
 }
