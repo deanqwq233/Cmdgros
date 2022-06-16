@@ -2,6 +2,7 @@
 * 作者:deanqwq233
 * 发布时间:2022/06/16
 * 程序名称:Cmdgros
+* 程序简介:用C++写出来一个仿Phigros？
 */
 #include<iostream>
 #include<windows.h>
