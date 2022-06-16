@@ -1,4 +1,9 @@
-﻿#include<iostream>
+﻿/*
+* 作者:deanqwq233
+* 发布时间:2022/06/16
+* 程序名称:Cmdgros
+*/
+#include<iostream>
 #include<windows.h>
 #include<stdio.h>
 using namespace std;
